@@ -25,7 +25,9 @@ const ProductCard = ({ data }: ProductCardProps) => {
       srcUrl: data.srcUrl,
       price: data.price,
       quantity: 1,
-      title: ""
+      title: "",
+      color: "",
+      size : "",
     });
   };
 

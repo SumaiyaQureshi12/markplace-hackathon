@@ -1,16 +1,9 @@
-"use client";
 
-import {
-  Color,
-  setColorSelection,
-} from "@/lib/features/products/productsSlice";
-import { useAppDispatch, useAppSelector } from "@/lib/hooks/redux";
-import { RootState } from "@/lib/store";
 import { cn } from "@/lib/utils";
 import React from "react";
 import { IoMdCheckmark } from "react-icons/io";
 
-const colorsData: Color[] = [
+const colorsData = [
   {
     name: "Brown",
     code: "bg-[#4F4631]",
@@ -26,10 +19,7 @@ const colorsData: Color[] = [
 ];
 
 const ColorSelection = () => {
-  const { colorSelection } = useAppSelector(
-    (state: RootState) => state.products
-  );
-  const dispatch = useAppDispatch();
+  const { colorSelection, setColorSelection } = useProduct();
 
   return (
     <div className="flex flex-col">
@@ -45,9 +35,9 @@ const ColorSelection = () => {
               color.code,
               "rounded-full w-9 sm:w-10 h-9 sm:h-10 flex items-center justify-center",
             ])}
-            onClick={() => dispatch(setColorSelection(color))}
+            onClick={() => setColorSelection(color)}
           >
-            {colorSelection.name === color.name && (
+            {colorSelection?.name === color.name && (
               <IoMdCheckmark className="text-base text-white" />
             )}
           </button>
@@ -58,3 +48,7 @@ const ColorSelection = () => {
 };
 
 export default ColorSelection;
+function useProduct(): { colorSelection: any; setColorSelection: any; } {
+  throw new Error("Function not implemented.");
+}
+

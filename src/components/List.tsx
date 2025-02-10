@@ -37,9 +37,10 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
   const handleAddToCart = () => {
     const cartItem = {
       id: product._id,
+      title: product.name,
       name: product.name,
       price: product.price,
-      imageUrl: product.imageUrl?.[0] || '', // Fallback to first image if available
+      srcUrl: product.imageUrl?.[0] || '', // Fallback to first image if available
       quantity,
       color: selectedColor,
       size: selectedSize,

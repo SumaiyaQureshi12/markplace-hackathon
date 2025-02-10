@@ -5,7 +5,7 @@ export type Discount = {
 
 export type Product = {
   [x: string]: string | StaticImport;
-  id: number;
+  id: string;
   title: string;
   srcUrl: string;
   gallery?: string[];
